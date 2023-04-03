@@ -26,6 +26,7 @@ func getMovementMap() map[int]string {
 		util.MoveDirectlyAfter:  "directly after",
 		util.MoveTop:            "top",
 		util.MoveBottom:         "bottom",
+		util.MoveLoose:          "loose",
 	}
 }
 
@@ -90,7 +91,7 @@ func groupIndexes(rules, names []string, move int, oRule string) (int, int, erro
 
 func groupPositionIsOk(move, fIdx, oIdx int, list, grp []string) bool {
 	switch move {
-	case util.MoveSkip:
+	case util.MoveSkip, util.MoveLoose:
 		return true
 	case util.MoveTop:
 		if list[0] == grp[0] {

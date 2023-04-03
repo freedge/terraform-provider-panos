@@ -259,13 +259,15 @@ The following arguments are supported:
 
 * `position_keyword` - (Optional) A positioning keyword for this group.  This
   can be `before`, `directly before`, `after`, `directly after`, `top`,
-  `bottom`, or left empty (the default) to have no particular placement.  This
+  `bottom`, left empty (the default) to have no particular placement, or `loose`
+  to have no particular placement even within the group.  This
   param works in combination with the `position_reference` param.
 * `position_reference` - (Optional) Required if `position_keyword` is one of the
   "above" or "below" variants, this is the name of a non-group rule to use
   as a reference to place this group.
 * `rule` - The security rule definition (see below).  The security rule
-  ordering will match how they appear in the terraform plan file.
+  ordering will match how they appear in the terraform plan file unless
+  `position_keyword` is set to `loose`.
 
 The following arguments are valid for each `rule` section:
 

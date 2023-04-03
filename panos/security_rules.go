@@ -202,6 +202,12 @@ func createUpdateSecurityRuleGroup(d *schema.ResourceData, meta interface{}) err
 
 	id := buildSecurityRuleGroupId(dg, base, vsys, move, oRule, rules)
 
+	// TODO: we suppress the move of existing rules here.
+	//   we do this after the buildSecurityRuleGroupId that also use the position_keyword
+	if move == util.MoveSkip {
+		move = util.MoveLoose
+	}
+
 	switch con := meta.(type) {
 	case *pango.Firewall:
 		err = con.Policies.Security.ConfigureRules(vsys, rules, auditComments, false, move, oRule, prevNames)

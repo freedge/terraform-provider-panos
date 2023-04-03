@@ -85,6 +85,6 @@ require (
 	google.golang.org/protobuf v1.25.0 // indirect
 )
 
-//replace github.com/PaloAltoNetworks/pango => ../pango
+replace github.com/PaloAltoNetworks/pango => github.com/freedge/pango v0.0.0-20230403103816-dd730cf471c4
 
 go 1.17
