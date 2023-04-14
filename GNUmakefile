@@ -6,7 +6,7 @@ PKG_NAME=panos
 default: build
 
 build: fmtcheck
-	go install
+	CGO_ENABLED=0 go install
 
 test: fmtcheck
 	go test -i $(TEST) || exit 1
